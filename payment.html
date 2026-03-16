@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment — Smart Canteen</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+
+  <!-- ░░░ HEADER ░░░ -->
+  <header id="main-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="index.html" class="hdr-back-btn" title="Change canteen">←</a>
+        <img src="Images/logo.png" alt="" class="hdr-logo"
+             onerror="this.style.display='none'">
+        <div class="hdr-text">
+          <span class="hdr-brand">Smart Canteen</span>
+          <span class="hdr-sub" id="canteen-label">—</span>
+        </div>
+      </div>
+      <a href="cart.html" class="cart-btn">
+        <span>🛒</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ░░░ PAYMENT PAGE ░░░ -->
+  <main class="page-wrapper">
+
+    <!-- Page title row -->
+    <div class="page-header">
+      <a href="cart.html" class="pg-back-btn">← Cart</a>
+      <h2 class="page-title">Payment</h2>
+      <span></span>
+    </div>
+
+    <div class="payment-wrapper">
+
+      <!-- Order summary strip -->
+      <div class="pay-summary-strip">
+        <span id="pay-item-count">0 items</span>
+        <span class="pay-dot">·</span>
+        <span>Total: <strong id="pay-total">₹0</strong></span>
+      </div>
+
+      <!-- Card 1: Details -->
+      <div class="payment-card">
+        <div class="pcard-title">
+          <span class="pcard-num">01</span>
+          <h3>Your Details</h3>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="inp-name">Full Name</label>
+          <input type="text" id="inp-name" class="form-input" placeholder="Enter your name" autocomplete="name">
+          <span class="input-err" id="err-name"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="inp-phone">Phone Number</label>
+          <div class="phone-input-wrap">
+            <span class="phone-prefix">+91</span>
+            <input type="tel" id="inp-phone" class="form-input phone-input"
+                   placeholder="10-digit number" maxlength="10" autocomplete="tel">
+          </div>
+          <span class="input-err" id="err-phone"></span>
+        </div>
+      </div>
+
+      <!-- Card 2: UPI -->
+      <div class="payment-card">
+        <div class="pcard-title">
+          <span class="pcard-num">02</span>
+          <h3>UPI Payment</h3>
+        </div>
+
+        <div class="upi-methods">
+          <button class="upi-app-btn active" type="button" onclick="selectUpiApp(this,'gpay')">G Pay</button>
+          <button class="upi-app-btn"        type="button" onclick="selectUpiApp(this,'phonepe')">PhonePe</button>
+          <button class="upi-app-btn"        type="button" onclick="selectUpiApp(this,'paytm')">Paytm</button>
+          <button class="upi-app-btn"        type="button" onclick="selectUpiApp(this,'other')">Other</button>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="inp-upi">UPI ID</label>
+          <input type="text" id="inp-upi" class="form-input" placeholder="yourname@upi" autocomplete="off">
+          <span class="input-err" id="err-upi"></span>
+        </div>
+
+        <div class="upi-hint">
+          <span>💡</span>
+          <span>Enter your UPI ID and verify to complete payment</span>
+        </div>
+
+        <!-- Clicking this triggers verifyUpi() → navigates to tracking.html -->
+        <button class="btn-verify" id="btn-verify" type="button" onclick="verifyUpi()">
+          <span id="verify-text">Verify &amp; Pay <span id="verify-amount">₹0</span></span>
+          <span id="verify-spinner" style="display:none">⏳ Verifying…</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="store.js"></script>
+  <script src="payment.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Smart Canteen</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+  <!-- ░░░ HEADER ░░░ -->
+  <header id="main-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <!-- Back to canteen selection -->
+        <a href="index.html" class="hdr-back-btn" title="Change canteen">←</a>
+        <img src="Images/logo.png" alt="" class="hdr-logo"
+             onerror="this.style.display='none'">
+        <div class="hdr-text">
+          <span class="hdr-brand">Smart Canteen</span>
+          <span class="hdr-sub" id="canteen-label">—</span>
+        </div>
+      </div>
+      <!-- Cart button links to cart.html -->
+      <a href="cart.html" class="cart-btn">
+        <span>🛒</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ░░░ MENU PAGE ░░░ -->
+  <main class="page-wrapper">
+
+    <!-- Hero -->
+    <div class="menu-hero">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">FRESH · HOT · DELICIOUS</p>
+        <h1 class="hero-title">What are you<br><span class="hero-accent">craving today?</span></h1>
+        <p class="hero-sub">Freshly prepared, delivered to your seat</p>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <nav class="category-bar" aria-label="Menu categories">
+      <button class="cat-btn active" data-cat="all"      onclick="filterCategory('all',this)">✦ All</button>
+      <button class="cat-btn"        data-cat="snacks"   onclick="filterCategory('snacks',this)">🥪 Snacks</button>
+      <button class="cat-btn"        data-cat="meals"    onclick="filterCategory('meals',this)">🍱 Meals</button>
+      <button class="cat-btn"        data-cat="burger"   onclick="filterCategory('burger',this)">🍔 Burgers</button>
+      <button class="cat-btn"        data-cat="beverage" onclick="filterCategory('beverage',this)">🥤 Drinks</button>
+      <button class="cat-btn"        data-cat="dessert"  onclick="filterCategory('dessert',this)">🍮 Sweets</button>
+    </nav>
+
+    <!-- Menu Grid (filled by menu.js) -->
+    <div class="menu-grid" id="menu-grid"></div>
+
+  </main>
+
+  <!-- Floating Cart Bar (links to cart.html) -->
+  <a href="cart.html" class="float-cart-bar" id="float-cart" style="display:none">
+    <span id="float-items">0 items</span>
+    <span class="float-label">View Cart →</span>
+    <span id="float-total">₹0</span>
+  </a>
+
+  <!-- JS (order matters!) -->
+  <script src="store.js"></script>
+  <script src="data.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

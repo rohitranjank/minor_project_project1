@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Canteen</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="select.css">
+</head>
+<body>
+
+  <!-- ░░░ SPLASH SCREEN ░░░ -->
+  <div id="splash-screen">
+    <div class="splash-blob splash-blob-1"></div>
+    <div class="splash-blob splash-blob-2"></div>
+    <div class="splash-blob splash-blob-3"></div>
+
+    <div class="splash-content">
+      <div class="splash-logo-wrap">
+        <img src="Images/logo.png" alt="Smart Canteen" class="splash-logo"
+             onerror="this.style.display='none';document.querySelector('.splash-logo-fallback').style.display='flex'">
+        <div class="splash-logo-fallback">🍽️</div>
+        <div class="splash-ring"></div>
+        <div class="splash-ring splash-ring-2"></div>
+      </div>
+      <div class="splash-brand">
+        <span class="splash-word" style="--wi:0">Smart</span>
+        <span class="splash-word splash-word-accent" style="--wi:1">Canteen</span>
+      </div>
+      <div class="splash-divider-wrap"><div class="splash-divider"></div></div>
+      <p class="splash-eyebrow">ORDER · TRACK · ENJOY</p>
+      <p class="splash-sub">Fresh food, served to your table</p>
+    </div>
+
+    <div class="splash-progress-wrap">
+      <div class="splash-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- ░░░ CANTEEN SELECTION ░░░ -->
+  <main class="select-page">
+    <div class="select-top">
+      <img src="Images/logo.png" alt="Smart Canteen" class="select-logo"
+           onerror="this.style.display='none'">
+      <h1 class="select-title">Smart Canteen</h1>
+      <p class="select-sub">Please select your canteen to continue</p>
+    </div>
+
+    <div class="canteen-cards">
+
+      <!-- A-Block -->
+      <div class="canteen-card" onclick="selectCanteen('A')">
+        <div class="canteen-card-img-wrap">
+          <img src="Images/A-block Canteen image.jpg" alt="A-Block Canteen"
+               onerror="this.parentElement.classList.add('img-fallback')">
+          <div class="canteen-block-badge">A</div>
+        </div>
+        <div class="canteen-card-body">
+          <h2 class="canteen-name">A-Block Canteen</h2>
+          <p class="canteen-info">🕐 7:30 AM – 9:00 PM &nbsp;·&nbsp; North Wing</p>
+          <button class="canteen-select-btn" type="button">SELECT →</button>
+        </div>
+      </div>
+
+      <!-- C-Block -->
+      <div class="canteen-card" onclick="selectCanteen('C')">
+        <div class="canteen-card-img-wrap">
+          <img src="Images/C-block Canteen image.jpg" alt="C-Block Canteen"
+               onerror="this.parentElement.classList.add('img-fallback')">
+          <div class="canteen-block-badge">C</div>
+        </div>
+        <div class="canteen-card-body">
+          <h2 class="canteen-name">C-Block Canteen</h2>
+          <p class="canteen-info">🕐 8:00 AM – 8:30 PM &nbsp;·&nbsp; South Wing</p>
+          <button class="canteen-select-btn" type="button">SELECT →</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="store.js"></script>
+  <script src="select.js"></script>
+</body>
+</html>
