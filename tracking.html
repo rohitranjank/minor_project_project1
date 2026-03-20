@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking — Smart Canteen</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="tracking.css">
+</head>
+<body>
+
+  <!-- ░░░ HEADER ░░░ -->
+  <header id="main-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="index.html" class="hdr-back-btn" title="Change canteen">←</a>
+        <img src="Images/logo.png" alt="" class="hdr-logo"
+             onerror="this.style.display='none'">
+        <div class="hdr-text">
+          <span class="hdr-brand">Smart Canteen</span>
+          <span class="hdr-sub" id="canteen-label">—</span>
+        </div>
+      </div>
+      <a href="cart.html" class="cart-btn">
+        <span>🛒</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Confetti canvas (full screen, fixed) -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ░░░ TRACKING PAGE ░░░ -->
+  <main class="page-wrapper">
+    <div class="tracking-wrapper">
+
+      <!-- Confirmed badge -->
+      <div class="confirmed-badge">
+        <div class="badge-ring"></div>
+        <span class="badge-check">✓</span>
+      </div>
+      <h2 class="confirmed-title">Order Confirmed!</h2>
+      <p class="confirmed-sub">Being freshly prepared for you 🧑‍🍳</p>
+
+      <!-- Order ID -->
+      <div class="order-id-card">
+        <span class="oid-label">Order ID</span>
+        <span class="oid-value" id="order-id">#SC-0000</span>
+        <span class="oid-canteen" id="tracking-canteen">—</span>
+      </div>
+
+      <!-- Cooking stages -->
+      <div class="cooking-stages">
+
+        <div class="stage active" id="stage-0">
+          <div class="stage-icon-wrap"><span class="stage-anim" id="anim-0">📋</span></div>
+          <div class="stage-info">
+            <span class="stage-name">Order Received</span>
+            <span class="stage-status done" id="status-0">✓ Done</span>
+          </div>
+        </div>
+        <div class="stage-connector" id="conn-0"></div>
+
+        <div class="stage" id="stage-1">
+          <div class="stage-icon-wrap"><span class="stage-anim" id="anim-1">👨‍🍳</span></div>
+          <div class="stage-info">
+            <span class="stage-name">Chef Preparing</span>
+            <span class="stage-status" id="status-1">Waiting…</span>
+          </div>
+        </div>
+        <div class="stage-connector" id="conn-1"></div>
+
+        <div class="stage" id="stage-2">
+          <div class="stage-icon-wrap"><span class="stage-anim" id="anim-2">🔥</span></div>
+          <div class="stage-info">
+            <span class="stage-name">Cooking</span>
+            <span class="stage-status" id="status-2">Waiting…</span>
+          </div>
+        </div>
+        <div class="stage-connector" id="conn-2"></div>
+
+        <div class="stage" id="stage-3">
+          <div class="stage-icon-wrap"><span class="stage-anim" id="anim-3">🍽️</span></div>
+          <div class="stage-info">
+            <span class="stage-name">Plating</span>
+            <span class="stage-status" id="status-3">Waiting…</span>
+          </div>
+        </div>
+        <div class="stage-connector" id="conn-3"></div>
+
+        <div class="stage" id="stage-4">
+          <div class="stage-icon-wrap"><span class="stage-anim" id="anim-4">🛎️</span></div>
+          <div class="stage-info">
+            <span class="stage-name">Ready to Serve</span>
+            <span class="stage-status" id="status-4">Waiting…</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Countdown timer -->
+      <div class="timer-card">
+        <p class="timer-label">Estimated Time</p>
+        <div class="timer-display" id="timer-display">20:00</div>
+        <div class="timer-bar-wrap">
+          <div class="timer-bar" id="timer-bar"></div>
+        </div>
+        <p class="timer-sub" id="timer-sub">Your order will be ready shortly</p>
+      </div>
+
+      <!-- Order items summary -->
+      <div class="tracking-order-summary" id="tracking-summary"></div>
+
+      <!-- Place new order (shown when ready) — goes back to menu -->
+      <button class="btn-neworder" id="btn-neworder"
+              style="display:none" onclick="startNewOrder()">
+        🍽️ Place New Order
+      </button>
+
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="store.js"></script>
+  <script src="tracking.js"></script>
+</body>
+</html>
